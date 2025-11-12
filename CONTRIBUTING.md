@@ -2,7 +2,7 @@
 We're very glad you've decided to help contribute. Here are a couple of guidelines to get you started.
 
 ## 1. Before the deadline, no help accepted
-While we'd love to get more help, this will be part of a competition, so we can't accept issues, PRs, or any kind of contribution from anyone outside the @We-Have-No-Gameplay/Game-Jam-Dev-Team!
+While we'd love to get more help, this will be part of a competition, so we can't accept issues, PRs, or any kind of contribution from anyone outside the [Game Jam Dev Team](https://github.com/orgs/We-Have-No-Gameplay/teams/game-jam-dev-team).
 As soon as the deadline passes, we'd be happy to accept your assistance!
 
 ## 2. Read our dev guides!
