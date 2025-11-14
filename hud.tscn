@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpse6a8jr3sxw"]
+[gd_scene load_steps=9 format=3 uid="uid://dpse6a8jr3sxw"]
 
 [ext_resource type="Texture2D" uid="uid://djspjpm112ij5" path="res://assets/downloaded/kenney_input-prompts_1.4/Keyboard & Mouse/keyboard-&-mouse_sheet_default.png" id="1_64ctp"]
 [ext_resource type="Texture2D" uid="uid://cv8lyjak80eda" path="res://assets/downloaded/kenney_ui-pack-pixel-adventure/Tilesheets/Large tiles/Thick outline/tilemap.png" id="2_8sq4i"]
+[ext_resource type="TileSet" uid="uid://bbqpebadlqx8c" path="res://assets/downloaded/kenney_tiles_tileset.tres" id="3_8sq4i"]
+[ext_resource type="LabelSettings" uid="uid://0708n0qklnyh" path="res://assets/ui_label_settings_large.tres" id="4_a2258"]
+[ext_resource type="LabelSettings" uid="uid://bgcpdhmx7ww0k" path="res://assets/ui_label_settings_small.tres" id="5_1xsix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_640wx"]
 resource_name = "Input Prompts"
@@ -343,3 +346,24 @@ tile_set = SubResource("TileSet_1xsix")
 occlusion_enabled = false
 collision_enabled = false
 navigation_enabled = false
+
+[node name="InputPromptTilemap" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_8sq4i")
+
+[node name="MainTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 45.0
+offset_right = 906.0
+offset_bottom = 105.0
+text = "a game about something"
+label_settings = ExtResource("4_a2258")
+
+[node name="SecondaryTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 106.0
+offset_right = 856.0
+offset_bottom = 136.0
+text = "we think it involves climbing a mountain"
+label_settings = ExtResource("5_1xsix")
