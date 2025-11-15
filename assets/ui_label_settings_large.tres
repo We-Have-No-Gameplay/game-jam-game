@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://0708n0qklnyh"]
+
+[ext_resource type="FontFile" uid="uid://bn6jt0xd0ahjg" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="1_8i8aj"]
+
+[resource]
+font = ExtResource("1_8i8aj")
+font_size = 80
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-5, -5)
