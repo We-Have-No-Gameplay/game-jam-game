@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://bwkixbg4rnjau"]
 
-[ext_resource type="Shader" path="res://shaders/toon_lighting.gdshader" id="1_2r41h"]
-[ext_resource type="ArrayMesh" path="res://models_mesh/BaseRock_Cube.res" id="2_klq6b"]
-[ext_resource type="ArrayMesh" path="res://models_mesh/BaseRock_Cube_001.res" id="3_b121j"]
-[ext_resource type="ArrayMesh" path="res://models_mesh/BaseRock_Cube_003.res" id="4_8c41q"]
-[ext_resource type="Shader" path="res://shaders/edge_detector.gdshader" id="6_t1rx8"]
+[ext_resource type="Shader" uid="uid://bjn7e4lymvcei" path="res://shaders/toon_lighting.gdshader" id="1_2r41h"]
+[ext_resource type="ArrayMesh" uid="uid://dnxp5ptryrbni" path="res://models_mesh/BaseRock_Cube.res" id="2_klq6b"]
+[ext_resource type="ArrayMesh" uid="uid://bxm0l5ajye870" path="res://models_mesh/BaseRock_Cube_001.res" id="3_b121j"]
+[ext_resource type="ArrayMesh" uid="uid://bvljc6md5n8k0" path="res://models_mesh/BaseRock_Cube_003.res" id="4_8c41q"]
+[ext_resource type="Shader" uid="uid://cwexv387v0h3a" path="res://shaders/edge_detector.gdshader" id="6_t1rx8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8iemx"]
 render_priority = 0
@@ -113,7 +113,9 @@ stretch = true
 stretch_shrink = 5
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(237, 129)
+render_target_update_mode = 4
 
 [node name="Plane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074747324, 0.35380793, -0.02442801)
@@ -144,9 +146,11 @@ light_color = Color(1, 0.62291765, 0.39294708, 1)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 11.283941, 10.014956)
+visible = false
 projection = 1
 size = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_gunhw")
