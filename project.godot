@@ -12,7 +12,6 @@ config_version=5
 
 config/name="Game Jam Game"
 config/version="v1.0.0a1"
-run/main_scene="uid://b08qdyd3l27el"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.4313402, 0.43134028, 0.43134007, 1)
 boot_splash/show_image=false
