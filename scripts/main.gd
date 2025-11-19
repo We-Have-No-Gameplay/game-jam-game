@@ -11,7 +11,7 @@
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>."""
+	along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 
 extends Node
 
@@ -20,9 +20,9 @@ extends Node
 func _ready() -> void:
 	# Print licensing information (this should also be added to credits when able)
 	print("A Game about Something (main.gd)  Copyright (C) 2025 We Have No Gameplay (HippoProgrammer, DrygithTheGM, Goldenfootie)")
-    print("This program comes with ABSOLUTELY NO WARRANTY.")
-    print("This is free software, and you are welcome to redistribute it")
-    print("under certain conditions.")
+	print("This program comes with ABSOLUTELY NO WARRANTY.")
+	print("This is free software, and you are welcome to redistribute it")
+	print("under certain conditions.")
 
 	# Hide the main level
 	get_node("Level").hide()
