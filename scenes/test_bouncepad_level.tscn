@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://besre7acaocti"]
+
+[ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://scripts/character_body_3d.gd" id="1_n8444"]
+[ext_resource type="PackedScene" uid="uid://bhugvkyxw2xi0" path="res://scripts/bounce_pad.tscn" id="2_7ufbx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n8444"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7ufbx"]
+sky_material = SubResource("ProceduralSkyMaterial_n8444")
+
+[sub_resource type="Environment" id="Environment_d7v12"]
+background_mode = 2
+sky = SubResource("Sky_7ufbx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jraqg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n8444"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8444"]
+size = Vector3(1, 0.001, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ufbx"]
+
+[node name="TestBouncepadLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d7v12")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 1.0474669, 0)
+script = ExtResource("1_n8444")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_jraqg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_n8444")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.9320964, 0.36221033, 0, -0.3622103, 0.93209654, 0, 0.88113976, 2.4346616)
+projection = 1
+size = 7.881254
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(18.257, 0, 0, 0, 1, 0, 0, 0, 18.26, 0, -0.4995, 0)
+shape = SubResource("BoxShape3D_n8444")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(0.50485444, 0, 0, 0, 0.099999964, 0, 0, 0, 0.50624686, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7ufbx")
+
+[node name="BouncePad" parent="." instance=ExtResource("2_7ufbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6139512)

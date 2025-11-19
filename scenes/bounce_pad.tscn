@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhugvkyxw2xi0"]
+
+[ext_resource type="Script" uid="uid://bl3f5buf2gf1p" path="res://scripts/bounce_pad.gd" id="1_g6spo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqs3k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6spo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6spo"]
+
+[node name="BouncePad" type="Node3D"]
+script = ExtResource("1_g6spo")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1.1396518, 0, 0, 0, 0.1470921, 0, 0, 0, 1.1396518, 0, 0, 0)
+shape = SubResource("BoxShape3D_sqs3k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_g6spo")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.1205167, 0, 0, 0, 0.09654051, 0, 0, 0, 1.1205167, 0, 0.093186475, 0)
+shape = SubResource("BoxShape3D_g6spo")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
