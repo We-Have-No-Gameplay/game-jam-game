@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhoubbw6vlhmw"
-path="res://.godot/imported/BaseRock.glb-452eb929f057bef1606ccf2722f2856a.scn"
+path="res://.godot/imported/BaseRock.glb-d81c18fb620af2d07d29dde8e3b6cd34.scn"
 
 [deps]
 
-source_file="res://models_glb/BaseRock.glb"
-dest_files=["res://.godot/imported/BaseRock.glb-452eb929f057bef1606ccf2722f2856a.scn"]
+source_file="res://assets/models_glb/BaseRock.glb"
+dest_files=["res://.godot/imported/BaseRock.glb-d81c18fb620af2d07d29dde8e3b6cd34.scn"]
 
 [params]
 
@@ -45,7 +45,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://models_mesh/BaseRock_Cube.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/BaseRock_Cube.res",
 "save_to_file/path": "uid://dnxp5ptryrbni"
 },
 "BaseRock_Cube_001": {
@@ -54,7 +54,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://models_mesh/BaseRock_Cube_001.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/BaseRock_Cube_001.res",
 "save_to_file/path": "uid://bxm0l5ajye870"
 },
 "BaseRock_Cube_003": {
@@ -63,7 +63,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://models_mesh/BaseRock_Cube_003.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/BaseRock_Cube_003.res",
 "save_to_file/path": "uid://bvljc6md5n8k0"
 },
 "BaseRock_Cube_004": {
@@ -72,7 +72,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://models_mesh/BaseRock_Cube_004.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/BaseRock_Cube_004.res",
 "save_to_file/path": "uid://dmbv64fqxil7t"
 }
 }
