@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Game Jam Game"
-config/version="v1.0.0a1"
-run/main_scene="res://main.tscn"
+config/version="v1.0.0a3"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=120
 boot_splash/bg_color=Color(0.4313402, 0.43134028, 0.43134007, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [display]
 
