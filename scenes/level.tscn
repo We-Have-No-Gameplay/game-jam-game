@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwkixbg4rnjau"]
 
 [ext_resource type="Shader" uid="uid://bjn7e4lymvcei" path="res://assets/shaders/toon_lighting.gdshader" id="1_2r41h"]
-[ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://scripts/character_body_3d.gd" id="3_w8frs"]
+[ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://testing/character_body_3d.gd" id="3_w8frs"]
 [ext_resource type="Shader" uid="uid://cwexv387v0h3a" path="res://assets/shaders/edge_detector.gdshader" id="6_t1rx8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82cfe"]
