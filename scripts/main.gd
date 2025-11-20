@@ -25,7 +25,8 @@ func _ready() -> void:
 	print("under certain conditions.")
 
 	# Hide the main level
-	get_node("Level").hide()
+	get_node("LevelContainer").hide()
+	get_node("TestThingyContainer").hide()
 	
 	# Show the HUD
 	get_node("HUD").show()
@@ -42,4 +43,4 @@ func _process(delta: float) -> void:
 func _on_play_button_pressed() -> void:
 	# When PlayButton pressed, show the level
 	get_node("HUD").hide() ## Note: this will need to be changed in future - HUD elements will need to be shown, and this should only selectively hide the level selector etc.
-	get_node("Level").show()
+	get_node("LevelContainer").show()

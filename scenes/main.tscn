@@ -10,7 +10,19 @@ script = ExtResource("1_h2yge")
 
 [node name="HUD" parent="." instance=ExtResource("1_ig7tw")]
 
-[node name="Level" parent="." instance=ExtResource("2_0xm2m")]
+[node name="LevelContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="TestThingy" parent="." instance=ExtResource("4_1bvp3")]
+[node name="LevelSubViewport" type="SubViewport" parent="LevelContainer"]
+
+[node name="Level" parent="LevelContainer/LevelSubViewport" instance=ExtResource("2_0xm2m")]
+
+[node name="TestThingyContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TestThingySubViewport" type="SubViewport" parent="TestThingyContainer"]
+
+[node name="TestThingy" parent="TestThingyContainer/TestThingySubViewport" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.836632)
