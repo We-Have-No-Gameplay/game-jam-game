@@ -412,18 +412,12 @@ text = "START"
 label_settings = ExtResource("5_1xsix")
 horizontal_alignment = 1
 
-[node name="ButtonSelectors" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -105.0
-offset_right = 63.0
-offset_bottom = -75.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ButtonSelectorContainer" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonSelectors" type="Label" parent="ButtonSelectorContainer"]
+layout_mode = 2
 text = ">                    <"
 label_settings = ExtResource("5_1xsix")
