@@ -12,22 +12,32 @@ script = ExtResource("1_h2yge")
 
 [node name="LevelContainer" type="SubViewportContainer" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
 [node name="LevelSubViewport" type="SubViewport" parent="LevelContainer"]
 handle_input_locally = false
+size = Vector2i(1187, 648)
 render_target_update_mode = 0
 
 [node name="Level" parent="LevelContainer/LevelSubViewport" instance=ExtResource("2_0xm2m")]
 
 [node name="TestThingyContainer" type="SubViewportContainer" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
 [node name="TestThingySubViewport" type="SubViewport" parent="TestThingyContainer"]
 handle_input_locally = false
+size = Vector2i(1187, 648)
 render_target_update_mode = 0
 
 [node name="TestThingy" parent="TestThingyContainer/TestThingySubViewport" instance=ExtResource("4_1bvp3")]
