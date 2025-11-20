@@ -2,29 +2,32 @@
 
 [ext_resource type="Script" uid="uid://bl3f5buf2gf1p" path="res://scripts/bounce_pad.gd" id="1_g6spo"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sqs3k"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_g6spo"]
+size = Vector3(1.14, 0.14, 1.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fd0mo"]
+points = PackedVector3Array(-0.57, -0.07, -0.57, -0.57, 0.07, -0.57, 0.57, -0.07, -0.57, -0.57, -0.07, 0.57, -0.57, 0.07, 0.57, 0.57, 0.07, -0.57, 0.57, -0.07, 0.57, 0.57, 0.07, 0.57)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6spo"]
+size = Vector3(1.12, 0.09, 1.12)
 
 [node name="BouncePad" type="Node3D"]
 script = ExtResource("1_g6spo")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="BouncePadObject" type="RigidBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1.1396518, 0, 0, 0, 0.1470921, 0, 0, 0, 1.1396518, 0, 0, 0)
-shape = SubResource("BoxShape3D_sqs3k")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+[node name="RigidBodyMesh" type="MeshInstance3D" parent="BouncePadObject"]
 mesh = SubResource("BoxMesh_g6spo")
+skeleton = NodePath("")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="RigidBodyCollision" type="CollisionShape3D" parent="BouncePadObject"]
+shape = SubResource("ConvexPolygonShape3D_fd0mo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.1205167, 0, 0, 0, 0.09654051, 0, 0, 0, 1.1205167, 0, 0.093186475, 0)
+[node name="BounceDetector" type="Area3D" parent="."]
+
+[node name="BounceDetectorCollision" type="CollisionShape3D" parent="BounceDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.093186475, 0)
 shape = SubResource("BoxShape3D_g6spo")
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="BounceDetector" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="BounceDetector" to="." method="_on_area_3d_body_entered"]
