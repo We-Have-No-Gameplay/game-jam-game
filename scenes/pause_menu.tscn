@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://db4lgi0gf111o"]
+
+[ext_resource type="Texture2D" uid="uid://brx8sh4lmra67" path="res://assets/PauseMenuOverlay.png" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://b0enguirccr7u" path="res://scenes/pause_menu.gd" id="1_v4r4p"]
+[ext_resource type="World3D" uid="uid://dnb1qixmhdiv2" path="res://scenes/main.tscn" id="2_myx47"]
+[ext_resource type="PackedScene" uid="uid://kxjh2fte6h8x" path="res://scenes/mountainPauseMenu.tscn" id="3_kukqi"]
+[ext_resource type="LabelSettings" uid="uid://0708n0qklnyh" path="res://assets/resources/ui_label_settings_large.tres" id="4_5d2l8"]
+[ext_resource type="FontFile" uid="uid://bn6jt0xd0ahjg" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="5_7l7mv"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_v4r4p")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = 544.0
+offset_top = -23.999998
+offset_right = 1056.0
+offset_bottom = 488.0
+scale = Vector2(1.3528434, 1.3528434)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+world_3d = ExtResource("2_myx47")
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="mountainPauseMenu" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_kukqi")]
+
+[node name="PauseMenuOverlay" type="Sprite2D" parent="."]
+modulate = Color(0.23529412, 0.23529412, 0.23529412, 1)
+position = Vector2(595, 328)
+scale = Vector2(0.62314814, 0.62314814)
+texture = ExtResource("1_n87rw")
+
+[node name="PausedTitle" type="Label" parent="PauseMenuOverlay"]
+offset_left = -941.99097
+offset_top = -531.1738
+offset_right = -351.99097
+offset_bottom = -411.17383
+scale = Vector2(1.7906747, 1.7906747)
+text = "PAUSED..."
+label_settings = ExtResource("4_5d2l8")
+
+[node name="ResumeButton" type="Button" parent="PauseMenuOverlay"]
+modulate = Color(4.7827163, 4.7827163, 4.7827163, 1)
+offset_left = -895.45306
+offset_top = -314.53192
+offset_right = -812.45306
+offset_bottom = -276.53192
+scale = Vector2(4.7336044, 4.7336044)
+theme_override_fonts/font = ExtResource("5_7l7mv")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "RESUME"
+
+[node name="Options" type="Button" parent="PauseMenuOverlay"]
+modulate = Color(4.7827163, 4.7827163, 4.7827163, 1)
+offset_left = -895.4532
+offset_top = -97.890045
+offset_right = -792.4532
+offset_bottom = -59.890045
+scale = Vector2(4.7336044, 4.7336044)
+theme_override_fonts/font = ExtResource("5_7l7mv")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "OPTIONS"
+
+[node name="ExitGame" type="Button" parent="PauseMenuOverlay"]
+modulate = Color(4.7827163, 4.7827163, 4.7827163, 1)
+offset_left = -895.4532
+offset_top = 115.54234
+offset_right = -762.4532
+offset_bottom = 153.54234
+scale = Vector2(4.7336044, 4.7336044)
+theme_override_fonts/font = ExtResource("5_7l7mv")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "EXIT GAME"
+
+[connection signal="button_down" from="PauseMenuOverlay/ResumeButton" to="." method="_on_resume_button_button_down"]
+[connection signal="button_down" from="PauseMenuOverlay/ExitGame" to="." method="_on_exit_game_button_down"]
