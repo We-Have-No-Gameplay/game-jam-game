@@ -46,4 +46,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.836632)
 [connection signal="level_shown" from="." to="HUD" method="_on_main_level_shown"]
 [connection signal="mainMenu_shown" from="." to="HUD" method="_on_main_main_menu_shown"]
 [connection signal="paused" from="." to="HUD" method="_on_main_paused"]
+[connection signal="pausePressed" from="HUD" to="." method="_on_hud_pause_pressed"]
 [connection signal="playButtonPressed" from="HUD" to="." method="_on_hud_play_button_pressed"]

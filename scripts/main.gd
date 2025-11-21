@@ -43,3 +43,6 @@ func _process(_delta: float) -> void:
 
 func _on_hud_play_button_pressed() -> void:
 	level_shown.emit()
+
+func _on_hud_pause_pressed() -> void:
+	paused.emit()
