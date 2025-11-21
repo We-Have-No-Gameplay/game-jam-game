@@ -1,90 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwkixbg4rnjau"]
+[gd_scene load_steps=12 format=3 uid="uid://bwkixbg4rnjau"]
 
 [ext_resource type="Shader" uid="uid://bjn7e4lymvcei" path="res://assets/shaders/toon_lighting.gdshader" id="1_2r41h"]
-[ext_resource type="ArrayMesh" uid="uid://dnxp5ptryrbni" path="res://assets/models_mesh/BaseRock_Cube.res" id="2_klq6b"]
-[ext_resource type="ArrayMesh" uid="uid://bxm0l5ajye870" path="res://assets/models_mesh/BaseRock_Cube_001.res" id="3_b121j"]
-[ext_resource type="ArrayMesh" uid="uid://bvljc6md5n8k0" path="res://assets/models_mesh/BaseRock_Cube_003.res" id="4_8c41q"]
+[ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://testing/character_body_3d.gd" id="3_w8frs"]
 [ext_resource type="Shader" uid="uid://cwexv387v0h3a" path="res://assets/shaders/edge_detector.gdshader" id="6_t1rx8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8iemx"]
-render_priority = 0
-shader = ExtResource("1_2r41h")
-shader_parameter/albedo = Color(0.1850855, 2.7458593e-05, 0.18944642, 1)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/cuts = 3
-shader_parameter/wrap = 0.0
-shader_parameter/steepness = 1.0
-shader_parameter/use_attenuation = true
-shader_parameter/use_specular = false
-shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = true
-shader_parameter/rim_width = 8.0
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = false
-shader_parameter/use_borders = false
-shader_parameter/border_width = 0.01
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_64w2a"]
-material = SubResource("ShaderMaterial_8iemx")
-size = Vector2(20, 20)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
-render_priority = 0
-shader = ExtResource("1_2r41h")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/cuts = 3
-shader_parameter/wrap = 0.0
-shader_parameter/steepness = 1.0
-shader_parameter/use_attenuation = true
-shader_parameter/use_specular = true
-shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = true
-shader_parameter/rim_width = 8.0
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = false
-shader_parameter/use_borders = false
-shader_parameter/border_width = 0.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc255"]
-render_priority = 0
-shader = ExtResource("1_2r41h")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/cuts = 3
-shader_parameter/wrap = 0.0
-shader_parameter/steepness = 1.0
-shader_parameter/use_attenuation = true
-shader_parameter/use_specular = true
-shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = true
-shader_parameter/rim_width = 8.0
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = false
-shader_parameter/use_borders = false
-shader_parameter/border_width = 0.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_arp2o"]
-render_priority = 0
-shader = ExtResource("1_2r41h")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/cuts = 3
-shader_parameter/wrap = 0.0
-shader_parameter/steepness = 1.0
-shader_parameter/use_attenuation = true
-shader_parameter/use_specular = true
-shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = true
-shader_parameter/rim_width = 8.0
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = false
-shader_parameter/use_borders = false
-shader_parameter/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82cfe"]
 render_priority = 0
@@ -100,57 +18,88 @@ material = SubResource("ShaderMaterial_82cfe")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2q6dc"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w7c3h"]
+render_priority = 0
+shader = ExtResource("1_2r41h")
+shader_parameter/albedo = Color(0, 0.35022312, 0.19435677, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 0.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w7c3h"]
+material = SubResource("ShaderMaterial_w7c3h")
+size = Vector2(10, 10)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8frs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8frs"]
+render_priority = 0
+shader = ExtResource("1_2r41h")
+shader_parameter/albedo = Color(0.718339, 0.9190704, 0.99999994, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mx8sn"]
+material = SubResource("ShaderMaterial_w8frs")
+
 [node name="Level" type="Node3D"]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-stretch_shrink = 5
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(237, 129)
-render_target_update_mode = 4
-
-[node name="Plane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074747324, 0.35380793, -0.02442801)
-mesh = SubResource("PlaneMesh_64w2a")
-skeleton = NodePath("../../..")
-
-[node name="BaseRockCube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.5288679, 0, -0.8487041, 0, 1, 0, 0.8487041, 0, 0.5288679, -0.11293149, 1.2617335, -2.2827938)
-material_override = SubResource("ShaderMaterial_fpun6")
-mesh = ExtResource("2_klq6b")
-skeleton = NodePath("../../..")
-
-[node name="BaseRockCube001" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.7944888, 0, 0.60727876, 0, 1, 0, -0.60727876, 0, 0.7944888, -3.9401016, 1.3342776, 0.90243137)
-material_override = SubResource("ShaderMaterial_wc255")
-mesh = ExtResource("3_b121j")
-skeleton = NodePath("../../..")
-
-[node name="BaseRockCube003" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.8206808, 0, -0.571387, 0, 1, 0, 0.571387, 0, 0.8206808, 3.085884, 1.3257792, 1.1356728)
-material_override = SubResource("ShaderMaterial_arp2o")
-mesh = ExtResource("4_8c41q")
-skeleton = NodePath("../../..")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.371139e-08, -0.70710677, 0.70710677, 0, 0.70710677, 0.70710677, -1, 3.090862e-08, -3.090862e-08, 6.4262166, 6.9746675, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.7071068, -1, 3.0908623e-08, -3.0908623e-08, 6.4262166, 6.9746675, 0)
 light_color = Color(1, 0.62291765, 0.39294708, 1)
+light_energy = 0.5
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 11.283941, 10.014956)
-visible = false
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 4.3119235, 4.153614)
 projection = 1
-size = 10.0
+size = 6.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
 visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_gunhw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_2q6dc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("PlaneMesh_w7c3h")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4201174, 0)
+script = ExtResource("3_w8frs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_w8frs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_mx8sn")
+skeleton = NodePath("../../..")

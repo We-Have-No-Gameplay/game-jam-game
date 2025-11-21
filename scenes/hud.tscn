@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dc2kdld7xq6fl"]
 
+[ext_resource type="Script" uid="uid://re3wt5of20fw" path="res://scripts/hud.gd" id="1_047uy"]
 [ext_resource type="Texture2D" uid="uid://djspjpm112ij5" path="res://assets/downloaded/kenney_input-prompts_1.4/Keyboard & Mouse/keyboard-&-mouse_sheet_default.png" id="1_64ctp"]
 [ext_resource type="Texture2D" uid="uid://cv8lyjak80eda" path="res://assets/downloaded/kenney_ui-pack-pixel-adventure/Tilesheets/Large tiles/Thick outline/tilemap.png" id="2_8sq4i"]
 [ext_resource type="TileSet" uid="uid://bbqpebadlqx8c" path="res://assets/resources/kenney_tiles_tileset.tres" id="3_8sq4i"]
 [ext_resource type="LabelSettings" uid="uid://0708n0qklnyh" path="res://assets/resources/ui_label_settings_large.tres" id="4_a2258"]
 [ext_resource type="LabelSettings" uid="uid://bgcpdhmx7ww0k" path="res://assets/resources/ui_label_settings_small.tres" id="5_1xsix"]
-[ext_resource type="FontFile" uid="uid://bn6jt0xd0ahjg" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="6_1xsix"]
 [ext_resource type="PackedScene" uid="uid://db4lgi0gf111o" path="res://scenes/pause_menu.tscn" id="7_5pdws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_640wx"]
@@ -340,6 +340,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_047uy")
 metadata/_edit_lock_ = true
 
 [node name="UITilemap" type="TileMapLayer" parent="."]
@@ -353,33 +354,71 @@ navigation_enabled = false
 tile_set = ExtResource("3_8sq4i")
 
 [node name="SecondaryTitle" type="Label" parent="."]
-layout_mode = 0
-offset_left = 371.0
-offset_top = 106.0
-offset_right = 856.0
-offset_bottom = 136.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.5
+offset_top = 102.0
+offset_right = 242.5
+offset_bottom = 132.0
+grow_horizontal = 2
 text = "we think it involves climbing a mountain"
 label_settings = ExtResource("5_1xsix")
 
 [node name="MainTitle" type="Label" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -2.0
-offset_right = 1224.0
-offset_bottom = 118.0
-scale = Vector2(0.9666027, 0.9666027)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -295.0
+offset_top = 46.0
+offset_right = 295.0
+offset_bottom = 106.0
+grow_horizontal = 2
 text = "a game about something"
 label_settings = ExtResource("4_a2258")
 
-[node name="PlayButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 560.0
-offset_top = 229.0
-offset_right = 643.0
-offset_bottom = 267.0
-theme_override_fonts/font = ExtResource("6_1xsix")
-theme_override_font_sizes/font_size = 40
-text = "START"
+[node name="CreditsButton" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -73.0
+offset_right = 37.5
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CREDITS"
+label_settings = ExtResource("5_1xsix")
+horizontal_alignment = 1
 
-[node name="PauseMenu" parent="." instance=ExtResource("7_5pdws")]
+[node name="PlayButton" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -105.0
+offset_right = 37.5
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+label_settings = ExtResource("5_1xsix")
+horizontal_alignment = 1
+
+[node name="ButtonSelectorContainer" type="Container" parent="."]
 layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonSelectors" type="Label" parent="ButtonSelectorContainer"]
+layout_mode = 2
+text = ">                    <"
+label_settings = ExtResource("5_1xsix")

@@ -5,6 +5,5 @@
 [resource]
 font = ExtResource("1_2jrgk")
 font_size = 40
-shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(-5, -5)
+shadow_offset = Vector2(-2, -2)
