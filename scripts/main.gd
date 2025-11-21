@@ -28,14 +28,14 @@ func _ready() -> void:
 	print("under certain conditions.")
 
 	# Hide the main level
-	get_node("LevelContainer").hide()
-	get_node("TestThingyContainer").hide()
+	$LevelContainer.hide()
+	$TestThingyContainer.hide()
 	
 	# Show the HUD
-	get_node("HUD").show()
+	$HUD.show()
 	mainMenu_shown.emit()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://0708n0qklnyh"]
 
-[ext_resource type="FontFile" uid="uid://cis7sotpumvc6" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel Square.ttf" id="1_vgon2"]
+[ext_resource type="FontFile" uid="uid://bn6jt0xd0ahjg" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="1_vgon2"]
 
 [resource]
 font = ExtResource("1_vgon2")
