@@ -356,6 +356,7 @@ navigation_enabled = false
 tile_set = ExtResource("3_8sq4i")
 
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -386,56 +387,46 @@ grow_horizontal = 2
 text = "we think it involves climbing a mountain"
 label_settings = ExtResource("5_1xsix")
 
-[node name="CreditsButton" type="Label" parent="MainMenu"]
+[node name="ButtonSelectors" type="Label" parent="MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 523.5
-offset_top = 231.0
-offset_right = 623.5
-offset_bottom = 261.0
+offset_left = 497.0
+offset_top = 289.0
+offset_right = 653.0
+offset_bottom = 319.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "CREDITS"
+text = ">                          <"
 label_settings = ExtResource("5_1xsix")
-horizontal_alignment = 1
 
-[node name="PlayButton" type="Label" parent="MainMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 536.0
-offset_top = 199.0
-offset_right = 611.0
-offset_bottom = 229.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ButtonsContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 240.0
+offset_right = 657.0
+offset_bottom = 338.0
+
+[node name="PlayButton" type="Label" parent="MainMenu/ButtonsContainer"]
+layout_mode = 2
 text = "START"
 label_settings = ExtResource("5_1xsix")
 horizontal_alignment = 1
 
-[node name="ButtonSelectors" type="Label" parent="MainMenu"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 500.5
-offset_top = 289.0
-offset_right = 646.5
-offset_bottom = 319.0
-grow_horizontal = 2
-grow_vertical = 2
-text = ">                        <"
+[node name="CreditsButton" type="Label" parent="MainMenu/ButtonsContainer"]
+layout_mode = 2
+text = "CREDITS"
 label_settings = ExtResource("5_1xsix")
+horizontal_alignment = 1
+
+[node name="ExitGameButton" type="Label" parent="MainMenu/ButtonsContainer"]
+layout_mode = 2
+text = "EXIT GAME"
+label_settings = ExtResource("5_1xsix")
+horizontal_alignment = 1
 
 [node name="PauseMenu" type="Control" parent="."]
 anchors_preset = 0
@@ -447,13 +438,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 514.0
+offset_top = -13.0
+offset_right = 1174.0
+offset_bottom = 459.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
+scale = Vector2(1.3019663, 1.3019663)
 
 [node name="MountainViewport" type="SubViewport" parent="PauseMenu/MountainContainer"]
 handle_input_locally = false
-size = Vector2i(40, 40)
+size = Vector2i(700, 512)
 render_target_update_mode = 4
 
 [node name="MountainPauseMenu" parent="PauseMenu/MountainContainer/MountainViewport" instance=ExtResource("7_0i1j5")]
@@ -465,9 +460,66 @@ texture = ExtResource("8_mphia")
 
 [node name="PausedTitle" type="Label" parent="PauseMenu"]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 40.0
-offset_right = 426.0
-offset_bottom = 100.0
+offset_left = 23.0
+offset_top = 21.0
+offset_right = 233.0
+offset_bottom = 81.0
+scale = Vector2(1.6248289, 1.6248289)
 text = "PAUSED..."
 label_settings = ExtResource("9_0m4u7")
+
+[node name="ResumeButton" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 147.0
+offset_right = 231.0
+offset_bottom = 207.0
+text = "RESUME"
+label_settings = ExtResource("4_a2258")
+horizontal_alignment = 1
+
+[node name="OptionsButton" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 207.0
+offset_right = 256.0
+offset_bottom = 267.0
+text = "OPTIONS"
+label_settings = ExtResource("4_a2258")
+horizontal_alignment = 1
+
+[node name="ExitToMenuButton" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 267.0
+offset_right = 331.0
+offset_bottom = 327.0
+text = "MAIN MENU"
+label_settings = ExtResource("4_a2258")
+horizontal_alignment = 1
+
+[node name="ExitGameButton" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 327.0
+offset_right = 336.0
+offset_bottom = 387.0
+text = "EXIT GAME"
+label_settings = ExtResource("4_a2258")
+horizontal_alignment = 1
+
+[node name="ButtonSelector" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 126.0
+offset_right = 302.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
+label_settings = ExtResource("4_a2258")
