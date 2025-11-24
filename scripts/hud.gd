@@ -6,12 +6,14 @@ var level_shown = false
 var paused = false
 var mainMenu_shown = false
 var creditsMenu_shown = false
+var optionsMenu_shown = false
 #Lists
 var mainMenubuttonsForSelection = ["MainMenu/ButtonsContainer/PlayButton","MainMenu/ButtonsContainer/CreditsButton","MainMenu/ButtonsContainer/ExitGameButton"] # should contain all main menu buttons in order from top to bottom
 var pauseMenubuttonsForSelection = ["PauseMenu/ResumeButton","PauseMenu/OptionsButton","PauseMenu/ExitToMenuButton","PauseMenu/ExitGameButton"] # should contain all pause menu buttons in order from top to bottom
 #Integers
 var mainMenubuttonSelectedIndex = 0
 var pauseMenubuttonSelectedIndex = 0
+var masterVolume = 50
 
 #Signals
 signal playButtonPressed
@@ -21,6 +23,7 @@ signal exitGameButtonPressed
 signal resumeButtonPressed
 signal exitToMenuButtonPressed
 signal optionsButtonPressed
+signal masterVolumeChanged
 
 #Main Code:
 # Called when the node enters the scene tree for the first time.
@@ -29,10 +32,6 @@ func _ready() -> void:
 	$MainMenu/ButtonSelectors.position.y = $MainMenu/ButtonsContainer/PlayButton.position.y + get_node('MainMenu/ButtonsContainer').position.y #Calculates the global height of the buttons
 	$MainMenu/ButtonSelectors.show()
 	
-	$MainMenu.show()
-	$PauseMenu.hide()
-	$CreditsMenu.hide()
-	
 	#Set booleans to correct values for testing
 	if get_node('MainMenu').is_visible_in_tree():
 		mainMenu_shown = true
@@ -40,6 +39,8 @@ func _ready() -> void:
 		paused = true
 	elif get_node('CreditsMenu').is_visible_in_tree():
 		creditsMenu_shown = true
+	elif $Settings.is_visible_in_tree():
+		optionsMenu_shown = true
 	else:
 		level_shown = true
 	
@@ -107,6 +108,10 @@ func _process(_delta: float) -> void:
 			elif pauseMenubuttonsForSelection[pauseMenubuttonSelectedIndex] == "PauseMenu/OptionsButton":
 				optionsButtonPressed.emit()
 				print('optionsButtonPressed')
+				$Settings.show()
+				$PauseMenu.hide()
+				paused = false
+				optionsMenu_shown = true
 			elif pauseMenubuttonsForSelection[pauseMenubuttonSelectedIndex] == "PauseMenu/ExitToMenuButton":
 				exitToMenuButtonPressed.emit()
 				print('exitToMenuButtonPressed')
@@ -136,13 +141,21 @@ func _process(_delta: float) -> void:
 			$MainMenu.show()
 			$CreditsMenu.hide()
 		
-	
+	elif optionsMenu_shown:
+		if Input.is_action_just_pressed("select") or Input.is_action_just_pressed("escape"):
+			optionsMenu_shown = false
+			paused = true
+			$PauseMenu.show()
+			$Settings.hide()
 func _on_main_level_shown() -> void:
 	level_shown = true
 	paused = false
 	mainMenu_shown = false
 	$MainMenu.hide()
 	$PauseMenu.hide()
+	$CreditsMenu.hide()
+	$Settings.hide()
+	$InGameMenu.hide()
 
 func _on_main_main_menu_shown() -> void:
 	mainMenu_shown = true
@@ -150,6 +163,9 @@ func _on_main_main_menu_shown() -> void:
 	paused = false
 	$MainMenu.show()
 	$PauseMenu.hide()
+	$CreditsMenu.hide()
+	$Settings.hide()
+	$InGameMenu.hide()
 
 func _on_main_paused() -> void:
 	paused = true
@@ -157,3 +173,11 @@ func _on_main_paused() -> void:
 	level_shown = false
 	$MainMenu.hide()
 	$PauseMenu.show()
+	$CreditsMenu.hide()
+	$Settings.hide()
+	$InGameMenu.hide()
+
+func _on_h_slider_value_changed(value: float) -> void:
+	masterVolume = value
+	masterVolumeChanged.emit(value)
+	print('volumeChanged')
