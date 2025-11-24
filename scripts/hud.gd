@@ -5,6 +5,7 @@ extends Control
 var level_shown = false
 var paused = false
 var mainMenu_shown = false
+var creditsMenu_shown = false
 #Lists
 var mainMenubuttonsForSelection = ["MainMenu/ButtonsContainer/PlayButton","MainMenu/ButtonsContainer/CreditsButton","MainMenu/ButtonsContainer/ExitGameButton"] # should contain all main menu buttons in order from top to bottom
 var pauseMenubuttonsForSelection = ["PauseMenu/ResumeButton","PauseMenu/OptionsButton","PauseMenu/ExitToMenuButton","PauseMenu/ExitGameButton"] # should contain all pause menu buttons in order from top to bottom
@@ -28,14 +29,13 @@ func _ready() -> void:
 	$MainMenu/ButtonSelectors.position.y = $MainMenu/ButtonsContainer/PlayButton.position.y + get_node('MainMenu/ButtonsContainer').position.y #Calculates the global height of the buttons
 	$MainMenu/ButtonSelectors.show()
 	
-	#Set booleans to correct values
+	#Set booleans to correct values for testing
 	if get_node('MainMenu').is_visible_in_tree():
 		mainMenu_shown = true
 	elif get_node('PauseMenu').is_visible_in_tree():
 		paused = true
-	elif false:
-		#Replace this with any other checks to set booleans
-		pass
+	elif get_node('CreditsMenu').is_visible_in_tree():
+		creditsMenu_shown = true
 	else:
 		level_shown = true
 	
@@ -65,11 +65,16 @@ func _process(_delta: float) -> void:
 			elif mainMenubuttonsForSelection[mainMenubuttonSelectedIndex] == "MainMenu/ButtonsContainer/CreditsButton":
 				creditsButtonPressed.emit()
 				print('creditsButtonPressed')
+				get_node('CreditsMenu').show()
+				get_node('MainMenu').hide()
+				creditsMenu_shown = true
+				mainMenu_shown = false
 			elif mainMenubuttonsForSelection[mainMenubuttonSelectedIndex] == "MainMenu/ButtonsContainer/ExitGameButton":
-				exitGameButtonPressed.emit()
-				print('exitGameButtonPressed')
+				creditsButtonPressed.emit()
+				print('creditsButtonPressed')
+				get_node('CreditsMenu').show()
+				get_node('MainMenu').hide()
 				get_tree().quit()
-			
 		
 	
 	elif paused: #If we are on the pause menu
@@ -118,8 +123,15 @@ func _process(_delta: float) -> void:
 			paused = true
 			get_node('PauseMenu').show()
 		
+	elif creditsMenu_shown:
+		if Input.is_action_just_pressed("select") or Input.is_action_just_pressed("escape"):
+			exitToMenuButtonPressed.emit()
+			mainMenu_shown = true
+			creditsMenu_shown = false
+			get_node('MainMenu').show()
+			get_node('CreditsMenu').hide()
+		
 	
-
 func _on_main_level_shown() -> void:
 	level_shown = true
 	paused = false
