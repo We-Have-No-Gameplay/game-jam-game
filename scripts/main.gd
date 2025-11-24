@@ -16,6 +16,7 @@
 extends Node
 
 signal paused
+signal resumed
 signal level_shown
 signal mainMenu_shown
 
@@ -34,6 +35,11 @@ func _ready() -> void:
 	# Show the HUD
 	$HUD.show()
 	mainMenu_shown.emit()
+	
+	# Connect timing signals to children
+	self.paused.connect($LevelContainer/LevelSubViewport/Level/CharacterBody3D._on_main_paused)
+	self.resumed.connect($LevelContainer/LevelSubViewport/Level/CharacterBody3D._on_main_resumed)
+	self.level_shown.connect($LevelContainer/LevelSubViewport/Level/CharacterBody3D._on_main_resumed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,6 +49,16 @@ func _process(_delta: float) -> void:
 
 func _on_hud_play_button_pressed() -> void:
 	level_shown.emit()
+	$HUD.hide()
+	$LevelContainer.show()
 
 func _on_hud_pause_pressed() -> void:
 	paused.emit()
+	$HUD.show()
+	$LevelContainer.hide()
+
+
+func _on_hud_resume_button_pressed() -> void:
+	resumed.emit()
+	$HUD.hide()
+	$LevelContainer.show()

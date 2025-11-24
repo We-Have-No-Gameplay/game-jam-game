@@ -18,10 +18,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+stretch_shrink = 4
 
 [node name="LevelSubViewport" type="SubViewport" parent="LevelContainer"]
 handle_input_locally = false
-size = Vector2i(1187, 648)
+size = Vector2i(296, 162)
 render_target_update_mode = 0
 
 [node name="Level" parent="LevelContainer/LevelSubViewport" instance=ExtResource("2_0xm2m")]
@@ -48,3 +49,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.836632)
 [connection signal="paused" from="." to="HUD" method="_on_main_paused"]
 [connection signal="pausePressed" from="HUD" to="." method="_on_hud_pause_pressed"]
 [connection signal="playButtonPressed" from="HUD" to="." method="_on_hud_play_button_pressed"]
+[connection signal="resumeButtonPressed" from="HUD" to="." method="_on_hud_resume_button_pressed"]
