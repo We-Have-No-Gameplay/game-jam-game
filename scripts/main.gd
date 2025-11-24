@@ -49,16 +49,13 @@ func _process(_delta: float) -> void:
 
 func _on_hud_play_button_pressed() -> void:
 	level_shown.emit()
-	$HUD.hide()
 	$LevelContainer.show()
 
 func _on_hud_pause_pressed() -> void:
 	paused.emit()
-	$HUD.show()
 	$LevelContainer.hide()
 
 
 func _on_hud_resume_button_pressed() -> void:
 	resumed.emit()
-	$HUD.hide()
 	$LevelContainer.show()
