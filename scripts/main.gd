@@ -15,6 +15,8 @@
 
 extends Node
 
+var masterVolume = 50
+
 signal paused
 signal resumed
 signal level_shown
@@ -59,3 +61,7 @@ func _on_hud_pause_pressed() -> void:
 func _on_hud_resume_button_pressed() -> void:
 	resumed.emit()
 	$LevelContainer.show()
+
+func _on_hud_master_volume_changed(volume: float) -> void:
+	masterVolume = volume
+	print('volumeUpdated')
