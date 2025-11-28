@@ -1,10 +1,11 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://0708n0qklnyh"]
 
-[ext_resource type="FontFile" uid="uid://bn6jt0xd0ahjg" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="1_8i8aj"]
+[ext_resource type="FontFile" uid="uid://bn6jt0xd0ahjg" path="res://assets/downloaded/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="1_vgon2"]
 
 [resource]
-font = ExtResource("1_8i8aj")
+font = ExtResource("1_vgon2")
 font_size = 80
+font_color = Color(2.0331757, 2.0331757, 2.0331757, 1)
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-5, -5)

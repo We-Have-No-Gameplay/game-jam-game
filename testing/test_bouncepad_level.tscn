@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://besre7acaocti"]
 
-[ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://scripts/character_body_3d.gd" id="1_n8444"]
-[ext_resource type="PackedScene" uid="uid://bhugvkyxw2xi0" path="res://scripts/bounce_pad.tscn" id="2_7ufbx"]
+[ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://testing/character_body_3d.gd" id="1_n8444"]
+[ext_resource type="PackedScene" uid="uid://bhugvkyxw2xi0" path="res://scenes/bounce_pad.tscn" id="2_7ufbx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n8444"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

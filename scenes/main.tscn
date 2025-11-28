@@ -3,14 +3,51 @@
 [ext_resource type="Script" uid="uid://cfwcwum4l2jym" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dc2kdld7xq6fl" path="res://scenes/hud.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bwkixbg4rnjau" path="res://scenes/level.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://besre7acaocti" path="res://scenes/test_bouncepad_level.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://besre7acaocti" path="res://testing/test_bouncepad_level.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
 
 [node name="HUD" parent="." instance=ExtResource("1_ig7tw")]
 
-[node name="Level" parent="." instance=ExtResource("2_0xm2m")]
+[node name="LevelContainer" type="SubViewportContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
 
-[node name="TestThingy" parent="." instance=ExtResource("4_1bvp3")]
+[node name="LevelSubViewport" type="SubViewport" parent="LevelContainer"]
+handle_input_locally = false
+size = Vector2i(296, 162)
+render_target_update_mode = 0
+
+[node name="Level" parent="LevelContainer/LevelSubViewport" instance=ExtResource("2_0xm2m")]
+
+[node name="TestThingyContainer" type="SubViewportContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="TestThingySubViewport" type="SubViewport" parent="TestThingyContainer"]
+handle_input_locally = false
+size = Vector2i(1187, 648)
+render_target_update_mode = 0
+
+[node name="TestThingy" parent="TestThingyContainer/TestThingySubViewport" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.836632)
+
+[connection signal="level_shown" from="." to="HUD" method="_on_main_level_shown"]
+[connection signal="mainMenu_shown" from="." to="HUD" method="_on_main_main_menu_shown"]
+[connection signal="paused" from="." to="HUD" method="_on_main_paused"]
+[connection signal="masterVolumeChanged" from="HUD" to="." method="_on_hud_master_volume_changed"]
+[connection signal="pausePressed" from="HUD" to="." method="_on_hud_pause_pressed"]
+[connection signal="playButtonPressed" from="HUD" to="." method="_on_hud_play_button_pressed"]
+[connection signal="resumeButtonPressed" from="HUD" to="." method="_on_hud_resume_button_pressed"]
