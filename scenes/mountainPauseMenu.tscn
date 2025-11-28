@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://kxjh2fte6h8x"]
 
-[ext_resource type="Script" uid="uid://cxs57uwu57h01" path="res://scenes/rotatePauseMenuCamera.gd" id="1_8dca2"]
+[ext_resource type="Script" uid="uid://cxs57uwu57h01" path="res://scripts/rotatePauseMenuCamera.gd" id="1_8dca2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8dca2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
