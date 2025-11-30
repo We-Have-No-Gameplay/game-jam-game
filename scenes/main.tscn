@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnb1qixmhdiv2"]
+[gd_scene load_steps=6 format=3 uid="uid://dnb1qixmhdiv2"]
 
 [ext_resource type="Script" uid="uid://cfwcwum4l2jym" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dc2kdld7xq6fl" path="res://scenes/hud.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bwkixbg4rnjau" path="res://scenes/level.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://besre7acaocti" path="res://testing/test_bouncepad_level.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://jaq7njojgkdn" path="res://scenes/Assets.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -18,11 +19,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 3
 
 [node name="LevelSubViewport" type="SubViewport" parent="LevelContainer"]
 handle_input_locally = false
-size = Vector2i(296, 162)
+size = Vector2i(395, 216)
 render_target_update_mode = 0
 
 [node name="Level" parent="LevelContainer/LevelSubViewport" instance=ExtResource("2_0xm2m")]
@@ -43,6 +44,9 @@ render_target_update_mode = 0
 
 [node name="TestThingy" parent="TestThingyContainer/TestThingySubViewport" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.836632)
+
+[node name="Assets" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -114.42961)
 
 [connection signal="level_shown" from="." to="HUD" method="_on_main_level_shown"]
 [connection signal="mainMenu_shown" from="." to="HUD" method="_on_main_main_menu_shown"]
