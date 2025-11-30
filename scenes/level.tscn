@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwkixbg4rnjau"]
+[gd_scene load_steps=12 format=3 uid="uid://bwkixbg4rnjau"]
 
 [ext_resource type="Shader" uid="uid://bjn7e4lymvcei" path="res://assets/shaders/toon_lighting.gdshader" id="1_2r41h"]
 [ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://testing/character_body_3d.gd" id="3_w8frs"]
-[ext_resource type="ArrayMesh" uid="uid://c8tuhbuy7kltv" path="res://assets/models_mesh/Pole_buffer-0-mesh-0.res" id="4_mx8sn"]
 [ext_resource type="Shader" uid="uid://cwexv387v0h3a" path="res://assets/shaders/edge_detector.gdshader" id="6_t1rx8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82cfe"]
@@ -34,7 +33,7 @@ shader_parameter/use_attenuation = true
 shader_parameter/use_specular = true
 shader_parameter/specular_strength = 0.0
 shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = true
+shader_parameter/use_rim = false
 shader_parameter/rim_width = 8.0
 shader_parameter/rim_color = Color(1, 1, 1, 1)
 shader_parameter/use_ramp = false
@@ -59,7 +58,7 @@ shader_parameter/use_attenuation = true
 shader_parameter/use_specular = true
 shader_parameter/specular_strength = 1.0
 shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = true
+shader_parameter/use_rim = false
 shader_parameter/rim_width = 8.0
 shader_parameter/rim_color = Color(1, 1, 1, 1)
 shader_parameter/use_ramp = false
@@ -77,7 +76,7 @@ light_color = Color(1, 0.62291765, 0.39294708, 1)
 light_energy = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.7071068, -0.3155095, 0.63281417, 0, 0.89493436, 0.44619784, -0.7071068, -0.3155095, 0.63281417, 3.5489168, 10.953053, 4.153614)
+transform = Transform3D(0.7071068, -0.3155095, 0.63281417, 0, 0.89493436, 0.44619784, -0.7071068, -0.3155095, 0.63281417, 4.394966, 3.782855, 4.153614)
 projection = 1
 size = 6.0
 
@@ -103,7 +102,3 @@ shape = SubResource("CapsuleShape3D_w8frs")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
 mesh = SubResource("CapsuleMesh_mx8sn")
 skeleton = NodePath("../../..")
-
-[node name="PoleBuffer0Mesh1" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -2, 4.3722553, -2.129547)
-mesh = ExtResource("4_mx8sn")
