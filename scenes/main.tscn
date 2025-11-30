@@ -13,23 +13,24 @@ script = ExtResource("1_h2yge")
 
 [node name="LevelContainer" type="SubViewportContainer" parent="."]
 visible = false
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 3
 
 [node name="LevelSubViewport" type="SubViewport" parent="LevelContainer"]
 handle_input_locally = false
-size = Vector2i(395, 216)
+size = Vector2i(1187, 648)
 render_target_update_mode = 0
 
 [node name="Level" parent="LevelContainer/LevelSubViewport" instance=ExtResource("2_0xm2m")]
 
 [node name="TestThingyContainer" type="SubViewportContainer" parent="."]
 visible = false
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,10 +44,10 @@ size = Vector2i(1187, 648)
 render_target_update_mode = 0
 
 [node name="TestThingy" parent="TestThingyContainer/TestThingySubViewport" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.836632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.576134)
 
 [node name="Assets" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -114.42961)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -149.37097)
 
 [connection signal="level_shown" from="." to="HUD" method="_on_main_level_shown"]
 [connection signal="mainMenu_shown" from="." to="HUD" method="_on_main_main_menu_shown"]

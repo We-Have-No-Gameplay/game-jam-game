@@ -18,6 +18,7 @@ glow_enabled = true
 [sub_resource type="BoxMesh" id="BoxMesh_kukqi"]
 
 [node name="Node3D" type="Node3D"]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pxj0c")
