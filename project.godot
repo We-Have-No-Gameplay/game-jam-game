@@ -26,6 +26,14 @@ config/icon="res://assets/icon.svg"
 
 window/size/viewport_width=1187
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 arrow_up={

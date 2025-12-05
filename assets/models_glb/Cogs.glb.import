@@ -45,7 +45,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/models_mesh/Big_Cog.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/Med_Cog.res",
 "save_to_file/path": "uid://bdrcv8oqd6kqr"
 },
 "Cogs_layer0_curve__001": {
@@ -54,7 +54,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/models_mesh/Cogs_layer0_curve__001.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/Small_Cog.res",
 "save_to_file/path": "uid://bndjfjl5uoxyb"
 },
 "Cogs_layer1_curve__001": {
@@ -63,7 +63,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/models_mesh/Cogs_layer1_curve__001.res",
+"save_to_file/fallback_path": "res://assets/models_mesh/Big_Cog.res",
 "save_to_file/path": "uid://ctiob2q274wwu"
 }
 }
