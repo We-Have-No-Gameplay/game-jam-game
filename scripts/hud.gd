@@ -126,6 +126,7 @@ func _process(_delta: float) -> void:
 			
 		
 	elif level_shown:
+		$InGameMenu.show()
 		if Input.is_action_just_pressed("escape"):
 			pausePressed.emit()
 			print('pausePressed')
@@ -155,7 +156,7 @@ func _on_main_level_shown() -> void:
 	$PauseMenu.hide()
 	$CreditsMenu.hide()
 	$Settings.hide()
-	$InGameMenu.hide()
+	$InGameMenu.show()
 
 func _on_main_main_menu_shown() -> void:
 	mainMenu_shown = true
