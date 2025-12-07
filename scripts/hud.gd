@@ -126,6 +126,7 @@ func _process(_delta: float) -> void:
 			
 		
 	elif level_shown:
+		$InGameMenu.show()
 		if Input.is_action_just_pressed("escape"):
 			pausePressed.emit()
 			print('pausePressed')

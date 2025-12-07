@@ -8,6 +8,7 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$InGameMenu.show()
 	# Snap camera to character position
 	$Camera3D.position = $CharacterBody3D.position
 	
