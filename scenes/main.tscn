@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnb1qixmhdiv2"]
+[gd_scene load_steps=14 format=3 uid="uid://dnb1qixmhdiv2"]
 
 [ext_resource type="Script" uid="uid://cfwcwum4l2jym" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dc2kdld7xq6fl" path="res://scenes/hud.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bwkixbg4rnjau" path="res://scenes/level.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://besre7acaocti" path="res://testing/test_bouncepad_level.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://jaq7njojgkdn" path="res://scenes/Assets.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dyvwomgnucacx" path="res://005/005.hdr" id="6_tefeu"]
 
 [sub_resource type="Shader" id="Shader_tefeu"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
@@ -146,6 +146,16 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 [sub_resource type="PlaneMesh" id="PlaneMesh_tipki"]
 material = SubResource("ShaderMaterial_gunhw")
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
+panorama = ExtResource("6_tefeu")
+
+[sub_resource type="Sky" id="Sky_tefeu"]
+sky_material = SubResource("PanoramaSkyMaterial_tbgi4")
+
+[sub_resource type="Environment" id="Environment_o6xl0"]
+background_mode = 2
+sky = SubResource("Sky_tefeu")
+
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
 
@@ -183,9 +193,6 @@ handle_input_locally = false
 size = Vector2i(1187, 648)
 render_target_update_mode = 0
 
-[node name="TestThingy" parent="TestThingyContainer/TestThingySubViewport" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.576134)
-
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="TestThingyContainer/TestThingySubViewport"]
 transform = Transform3D(1122.6106, 0, 0, 0, 1, 0, 0, 0, 1122.6106, -158.53137, 6.3955383, -13.590103)
 cast_shadow = 0
@@ -196,6 +203,9 @@ skeleton = NodePath("../../../..")
 [node name="Assets" parent="." instance=ExtResource("5_tbgi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -149.37097)
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o6xl0")
 
 [connection signal="level_shown" from="." to="HUD" method="_on_main_level_shown"]
 [connection signal="mainMenu_shown" from="." to="HUD" method="_on_main_main_menu_shown"]
