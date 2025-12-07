@@ -731,19 +731,14 @@ text = "ARTWORK AND GRAPHICS: DRYGITH"
 label_settings = ExtResource("5_1xsix")
 horizontal_alignment = 1
 
-[node name="Music" type="Label" parent="CreditsMenu/VBoxContainer"]
-layout_mode = 2
-text = "MUSIC: PROBABLY SOMEONE AT SOME POINT"
-label_settings = ExtResource("5_1xsix")
-horizontal_alignment = 1
-
 [node name="Label" type="Label" parent="CreditsMenu/VBoxContainer"]
 layout_mode = 2
-text = "TESTING: blob"
+text = "MOUNTAIN: GOLDENFOOTIE"
 label_settings = ExtResource("5_1xsix")
 horizontal_alignment = 1
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -787,13 +782,13 @@ offset_bottom = 56.0
 value = 50.0
 
 [node name="InGameMenu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="UITilemapLower" type="TileMapLayer" parent="InGameMenu"]
-scale = Vector2(2, 2)
+position = Vector2(-60, 0)
+scale = Vector2(1.8, 1.6)
 tile_map_data = PackedByteArray("AAABAAIAAgABAAAAAAABAAEAAgABAAEAAAACAAEAAgABAAAAAAADAAEAAgABAAEAAAAEAAEAAgABAAAAAAAFAAEAAgABAAAAAAAFAAIAAgABAAAAAAAFAAMAAgABAAAAAAAEAAMAAgABAAEAAAACAAMAAgABAAEAAAABAAMAAgABAAEAAAADAAMAAgABAAAAAAACAAIAAgABAAAAAAADAAIAAgABAAAAAAAEAAIAAgABAAAAAAABAAQAAgABAAAAAAACAAQAAgABAAAAAAADAAQAAgABAAAAAAAEAAQAAgABAAEAAAAFAAQAAgABAAAAAAABAAAAAgAAAAAAAAACAAAAAgABAAEAAAADAAAAAgABAAEAAAAEAAAAAgABAAEAAAAFAAAAAgAAAAAAAAA=")
 tile_set = ExtResource("3_8sq4i")
 occlusion_enabled = false
@@ -801,15 +796,48 @@ collision_enabled = false
 navigation_enabled = false
 
 [node name="UITilemapHigher" type="TileMapLayer" parent="InGameMenu"]
-scale = Vector2(2, 2)
+position = Vector2(-60, 0)
+scale = Vector2(1.8, 1.6)
 tile_map_data = PackedByteArray("AAADAAAAAgAEAAMAAAA=")
 tile_set = ExtResource("3_8sq4i")
 occlusion_enabled = false
 collision_enabled = false
 navigation_enabled = false
 
-[node name="InputPromptTilemap" type="TileMapLayer" parent="InGameMenu"]
-tile_map_data = PackedByteArray("AAADAAMAAQAHAAIAAAAKAAMAAQAGAA4AAAAFAAMAAwAOAAMAAAAIAAMAAwARAAMAAAADAAUAAQAJAAQAAAAKAAUAAQAHAAoAAAAFAAUAAwAQAAMAAAAIAAUAAwAPAAMAAAADAAcAAQACAAkAAAAKAAcAAQACAAUAAAAFAAcAAwARAAEAAAA=")
-tile_set = ExtResource("3_8sq4i")
+[node name="Label" type="Label" parent="InGameMenu"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 63.0
+offset_right = 220.0
+offset_bottom = 93.0
+text = "WASD To Move"
+label_settings = ExtResource("5_1xsix")
+
+[node name="Label2" type="Label" parent="InGameMenu"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 112.0
+offset_right = 226.0
+offset_bottom = 142.0
+text = "Space to Climb"
+label_settings = ExtResource("5_1xsix")
+
+[node name="Label3" type="Label" parent="InGameMenu"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 167.0
+offset_right = 238.0
+offset_bottom = 197.0
+text = "Shift to Run"
+label_settings = ExtResource("5_1xsix")
+
+[node name="Label4" type="Label" parent="InGameMenu"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 214.0
+offset_right = 265.0
+offset_bottom = 244.0
+text = "Reach The Top To Win"
+label_settings = ExtResource("5_1xsix")
 
 [connection signal="value_changed" from="Settings/VolumeLabel/HSlider" to="." method="_on_h_slider_value_changed"]
