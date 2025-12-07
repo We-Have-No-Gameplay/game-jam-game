@@ -148,6 +148,7 @@ material = SubResource("ShaderMaterial_gunhw")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
 panorama = ExtResource("6_tefeu")
+energy_multiplier = 2.0
 
 [sub_resource type="Sky" id="Sky_tefeu"]
 sky_material = SubResource("PanoramaSkyMaterial_tbgi4")
@@ -155,6 +156,7 @@ sky_material = SubResource("PanoramaSkyMaterial_tbgi4")
 [sub_resource type="Environment" id="Environment_o6xl0"]
 background_mode = 2
 sky = SubResource("Sky_tefeu")
+volumetric_fog_density = 0.005
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -206,6 +208,8 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_o6xl0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [connection signal="level_shown" from="." to="HUD" method="_on_main_level_shown"]
 [connection signal="mainMenu_shown" from="." to="HUD" method="_on_main_main_menu_shown"]
