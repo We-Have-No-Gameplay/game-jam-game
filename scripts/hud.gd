@@ -155,7 +155,7 @@ func _on_main_level_shown() -> void:
 	$PauseMenu.hide()
 	$CreditsMenu.hide()
 	$Settings.hide()
-	$InGameMenu.hide()
+	$InGameMenu.show()
 
 func _on_main_main_menu_shown() -> void:
 	mainMenu_shown = true
