@@ -4,10 +4,9 @@
 
 [node name="Node3D" type="Node3D"]
 visible = false
-
-[node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("1_8dca2")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.7071068, -0.20538035, 0.67662317, 0, 0.9568897, 0.29045168, -0.7071068, -0.20538035, 0.67662317, 2.5916657, 225.84485, 2061.481)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.7071068, -0.20538035, 0.67662317, 0, 0.9568897, 0.29045168, -0.7071068, -0.20538035, 0.67662317, 1171.6453, 634.27905, 1546.8474)
+fov = 20.0
 size = 3.8297725
