@@ -1,17 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://kxjh2fte6h8x"]
+[gd_scene load_steps=2 format=3 uid="uid://kxjh2fte6h8x"]
 
 [ext_resource type="Script" uid="uid://cxs57uwu57h01" path="res://scripts/rotatePauseMenuCamera.gd" id="1_8dca2"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_kukqi"]
-
 [node name="Node3D" type="Node3D"]
 visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_kukqi")
-skeleton = NodePath("../..")
 
 [node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("1_8dca2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dc2kdld7xq6fl"]
+[gd_scene load_steps=16 format=4 uid="uid://dc2kdld7xq6fl"]
 
 [ext_resource type="Script" uid="uid://re3wt5of20fw" path="res://scripts/hud.gd" id="1_047uy"]
 [ext_resource type="Texture2D" uid="uid://djspjpm112ij5" path="res://assets/downloaded/kenney_input-prompts_1.4/Keyboard & Mouse/keyboard-&-mouse_sheet_default.png" id="1_64ctp"]
@@ -7,6 +7,7 @@
 [ext_resource type="LabelSettings" uid="uid://0708n0qklnyh" path="res://assets/resources/ui_label_settings_large.tres" id="4_a2258"]
 [ext_resource type="Texture2D" uid="uid://bhys6re5u3idu" path="res://assets/downloaded/kenney_ui-pack-pixel-adventure/Tilesheets/Small tiles/Thick outline/tilemap.png" id="4_mphia"]
 [ext_resource type="LabelSettings" uid="uid://bgcpdhmx7ww0k" path="res://assets/resources/ui_label_settings_small.tres" id="5_1xsix"]
+[ext_resource type="Script" uid="uid://ban5jlqgckff0" path="res://scenes/in_game_menu.gd" id="6_0m4u7"]
 [ext_resource type="PackedScene" uid="uid://kxjh2fte6h8x" path="res://scenes/mountainPauseMenu.tscn" id="7_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://brx8sh4lmra67" path="res://assets/ui/PauseMenuOverlay.png" id="8_mphia"]
 [ext_resource type="LabelSettings" uid="uid://bkn5iblb7enws" path="res://assets/resources/ui_label_settings_large_black.tres" id="9_0m4u7"]
@@ -514,6 +515,81 @@ navigation_enabled = false
 [node name="InputPromptTilemap" type="TileMapLayer" parent="."]
 tile_set = ExtResource("3_8sq4i")
 
+[node name="InGameMenu" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("6_0m4u7")
+
+[node name="UITilemapLower" type="TileMapLayer" parent="InGameMenu"]
+position = Vector2(-60, 0)
+scale = Vector2(1.8, 1.6)
+tile_map_data = PackedByteArray("AAABAAIAAgABAAAAAAABAAEAAgABAAEAAAACAAEAAgABAAAAAAADAAEAAgABAAEAAAAEAAEAAgABAAAAAAAFAAEAAgABAAAAAAAFAAIAAgABAAAAAAAFAAMAAgABAAAAAAAEAAMAAgABAAEAAAACAAMAAgABAAEAAAABAAMAAgABAAEAAAADAAMAAgABAAAAAAACAAIAAgABAAAAAAADAAIAAgABAAAAAAAEAAIAAgABAAAAAAABAAQAAgABAAAAAAACAAQAAgABAAAAAAADAAQAAgABAAAAAAAEAAQAAgABAAEAAAAFAAQAAgABAAAAAAABAAAAAgAAAAAAAAACAAAAAgABAAEAAAADAAAAAgABAAEAAAAEAAAAAgABAAEAAAAFAAAAAgAAAAAAAAA=")
+tile_set = ExtResource("3_8sq4i")
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
+
+[node name="UITilemapHigher" type="TileMapLayer" parent="InGameMenu"]
+position = Vector2(-60, 0)
+scale = Vector2(1.8, 1.6)
+tile_map_data = PackedByteArray("AAADAAAAAgAEAAMAAAA=")
+tile_set = ExtResource("3_8sq4i")
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
+
+[node name="Label" type="Label" parent="InGameMenu"]
+offset_left = 50.0
+offset_top = 63.0
+offset_right = 220.0
+offset_bottom = 93.0
+text = "WASD To Move"
+label_settings = ExtResource("5_1xsix")
+
+[node name="Label2" type="Label" parent="InGameMenu"]
+offset_left = 45.0
+offset_top = 112.0
+offset_right = 226.0
+offset_bottom = 142.0
+text = "Space to Climb"
+label_settings = ExtResource("5_1xsix")
+
+[node name="Label3" type="Label" parent="InGameMenu"]
+offset_left = 57.0
+offset_top = 167.0
+offset_right = 238.0
+offset_bottom = 197.0
+text = "Shift to Run"
+label_settings = ExtResource("5_1xsix")
+
+[node name="Label4" type="Label" parent="InGameMenu"]
+offset_left = 10.0
+offset_top = 214.0
+offset_right = 265.0
+offset_bottom = 244.0
+text = "Reach The Top To Win"
+label_settings = ExtResource("5_1xsix")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0, 1, 0, 1)
+offset_left = 166.0
+offset_top = 591.0
+offset_right = 1081.0
+offset_bottom = 631.0
+tooltip_text = "Stamina Bar"
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 569.0
+offset_top = 595.0
+offset_right = 667.0
+offset_bottom = 634.0
+text = "Stamina"
+label_settings = ExtResource("5_1xsix")
+
 [node name="MainMenu" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -780,63 +856,35 @@ offset_right = 444.0
 offset_bottom = 56.0
 value = 50.0
 
-[node name="InGameMenu" type="Control" parent="."]
-anchors_preset = 0
+[node name="EndingScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="EndingScreen"]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(30.718643, 18.040857)
+color = Color(0, 0, 0, 1)
 
-[node name="UITilemapLower" type="TileMapLayer" parent="InGameMenu"]
-position = Vector2(-60, 0)
-scale = Vector2(1.8, 1.6)
-tile_map_data = PackedByteArray("AAABAAIAAgABAAAAAAABAAEAAgABAAEAAAACAAEAAgABAAAAAAADAAEAAgABAAEAAAAEAAEAAgABAAAAAAAFAAEAAgABAAAAAAAFAAIAAgABAAAAAAAFAAMAAgABAAAAAAAEAAMAAgABAAEAAAACAAMAAgABAAEAAAABAAMAAgABAAEAAAADAAMAAgABAAAAAAACAAIAAgABAAAAAAADAAIAAgABAAAAAAAEAAIAAgABAAAAAAABAAQAAgABAAAAAAACAAQAAgABAAAAAAADAAQAAgABAAAAAAAEAAQAAgABAAEAAAAFAAQAAgABAAAAAAABAAAAAgAAAAAAAAACAAAAAgABAAEAAAADAAAAAgABAAEAAAAEAAAAAgABAAEAAAAFAAAAAgAAAAAAAAA=")
-tile_set = ExtResource("3_8sq4i")
-occlusion_enabled = false
-collision_enabled = false
-navigation_enabled = false
+[node name="Label" type="Label" parent="EndingScreen"]
+offset_left = 52.0
+offset_top = 94.0
+offset_right = 1157.0
+offset_bottom = 406.0
+text = "You have reached the top of the mountain.
+Congratulations.
+That concludes this identity crisis of a game.
+It was supposed to be a puzzle game just a 
+couple of days ago, you know."
+label_settings = ExtResource("4_a2258")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="UITilemapHigher" type="TileMapLayer" parent="InGameMenu"]
-position = Vector2(-60, 0)
-scale = Vector2(1.8, 1.6)
-tile_map_data = PackedByteArray("AAADAAAAAgAEAAMAAAA=")
-tile_set = ExtResource("3_8sq4i")
-occlusion_enabled = false
-collision_enabled = false
-navigation_enabled = false
-
-[node name="Label" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 63.0
-offset_right = 220.0
-offset_bottom = 93.0
-text = "WASD To Move"
-label_settings = ExtResource("5_1xsix")
-
-[node name="Label2" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 112.0
-offset_right = 226.0
-offset_bottom = 142.0
-text = "Space to Climb"
-label_settings = ExtResource("5_1xsix")
-
-[node name="Label3" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 167.0
-offset_right = 238.0
-offset_bottom = 197.0
-text = "Shift to Run"
-label_settings = ExtResource("5_1xsix")
-
-[node name="Label4" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 214.0
-offset_right = 265.0
-offset_bottom = 244.0
-text = "Reach The Top To Win"
-label_settings = ExtResource("5_1xsix")
+[node name="Label2" type="Label" parent="EndingScreen"]
+offset_left = 481.0
+offset_top = 441.0
+offset_right = 786.0
+offset_bottom = 501.0
+text = "> Exit Game <"
+label_settings = ExtResource("4_a2258")
 
 [connection signal="value_changed" from="Settings/VolumeLabel/HSlider" to="." method="_on_h_slider_value_changed"]
