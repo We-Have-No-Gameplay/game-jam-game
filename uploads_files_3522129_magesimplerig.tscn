@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cojq1tsx6xaeu"]
+
+[ext_resource type="PackedScene" uid="uid://b2acybdbeplkk" path="res://uploads_files_3522129_magesimplerig.fbx" id="1_prlgq"]
+
+[node name="uploads_files_3522129_magesimplerig" instance=ExtResource("1_prlgq")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/28/rotation = Quaternion(-0.7, -0.015, -0.105, 0.994)
+bones/41/rotation = Quaternion(-0.7, 0.015, 0.105, 0.994)
