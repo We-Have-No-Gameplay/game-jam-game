@@ -1,10 +1,11 @@
-[gd_scene load_steps=51 format=4 uid="uid://bwkixbg4rnjau"]
+[gd_scene load_steps=49 format=3 uid="uid://bwkixbg4rnjau"]
 
 [ext_resource type="Shader" uid="uid://bjn7e4lymvcei" path="res://assets/shaders/toon_lighting.gdshader" id="1_2r41h"]
 [ext_resource type="Script" uid="uid://bpehiup57k0jb" path="res://scenes/level.gd" id="1_t1rx8"]
 [ext_resource type="Script" uid="uid://c45idsb6ufkw0" path="res://testing/character_body_3d.gd" id="3_w8frs"]
 [ext_resource type="ArrayMesh" uid="uid://ctiob2q274wwu" path="res://assets/models_mesh/Big_Cog.res" id="4_b121j"]
 [ext_resource type="ArrayMesh" uid="uid://bdrcv8oqd6kqr" path="res://assets/models_mesh/Med_Cog.res" id="5_8c41q"]
+[ext_resource type="PackedScene" uid="uid://cojq1tsx6xaeu" path="res://uploads_files_3522129_magesimplerig.tscn" id="5_pqd0y"]
 [ext_resource type="ArrayMesh" uid="uid://bndjfjl5uoxyb" path="res://assets/models_mesh/Small_Cog.res" id="6_olg7q"]
 [ext_resource type="Shader" uid="uid://cwexv387v0h3a" path="res://assets/shaders/edge_detector.gdshader" id="6_t1rx8"]
 [ext_resource type="ArrayMesh" uid="uid://bxm0l5ajye870" path="res://assets/models_mesh/BaseRock_Cube_001.res" id="7_t1rx8"]
@@ -19,10 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bos6hp35rrnni" path="res://assets/terrain/aerial_rocks_02_nor_dx_1k.png" id="16_5k0ak"]
 [ext_resource type="Texture2D" uid="uid://hoboepcs0ow6" path="res://assets/coast_sand_rocks_02_diff_1k.png" id="17_wu01b"]
 [ext_resource type="Texture2D" uid="uid://3oenta65do1w" path="res://assets/coast_sand_rocks_02_nor_dx_1k.png" id="18_3ies3"]
-[ext_resource type="LabelSettings" uid="uid://bgcpdhmx7ww0k" path="res://assets/resources/ui_label_settings_small.tres" id="21_h6wmr"]
 [ext_resource type="Script" uid="uid://i6u0e53sihdk" path="res://scenes/end_trigger.gd" id="22_5k0ak"]
-[ext_resource type="LabelSettings" uid="uid://0708n0qklnyh" path="res://assets/resources/ui_label_settings_large.tres" id="22_pqd0y"]
-[ext_resource type="TileSet" uid="uid://bbqpebadlqx8c" path="res://assets/resources/kenney_tiles_tileset.tres" id="24_wu01b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2q6dc"]
 size = Vector3(20, 0.1, 20)
@@ -247,18 +245,23 @@ shape = SubResource("BoxShape3D_2q6dc")
 mesh = SubResource("PlaneMesh_w7c3h")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.964737, 53.828728, -550.8899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.964737, 34.74055, -550.8899)
 script = ExtResource("3_w8frs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_w8frs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1.2669041, 0, 0, 0, 1, 0, 0.27614594, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_mx8sn")
 skeleton = NodePath("../../..")
 
+[node name="uploads_files_3522129_magesimplerig2" parent="CharacterBody3D/CollisionShape3D" instance=ExtResource("5_pqd0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007823944, -0.6671562, 0.06311035)
+
 [node name="ClimbRay" type="RayCast3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21087646, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6355095, 0)
 target_position = Vector3(0, 0, 10)
 collision_mask = 65535
 hit_from_inside = true
@@ -371,26 +374,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.006622, 293.165, 0)
 visible = false
 mesh = SubResource("CylinderMesh_8gofh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer"]
-modulate = Color(0, 1, 0, 1)
-offset_left = 166.0
-offset_top = 591.0
-offset_right = 1081.0
-offset_bottom = 631.0
-tooltip_text = "Stamina Bar"
-value = 100.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 569.0
-offset_top = 595.0
-offset_right = 667.0
-offset_bottom = 634.0
-text = "Stamina"
-label_settings = ExtResource("21_h6wmr")
-
 [node name="EndTrigger" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 302.22394, 0)
 script = ExtResource("22_5k0ak")
@@ -398,94 +381,3 @@ script = ExtResource("22_5k0ak")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndTrigger"]
 transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, -30.718666, 33.321655, 0)
 shape = SubResource("BoxShape3D_h6wmr")
-
-[node name="EndingScreen" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="EndingScreen"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(30.718643, 18.040857)
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="EndingScreen"]
-offset_left = 52.0
-offset_top = 94.0
-offset_right = 1157.0
-offset_bottom = 406.0
-text = "You have reached the top of the mountain.
-Congratulations.
-That concludes this identity crisis of a game.
-It was supposed to be a puzzle game just a 
-couple of days ago, you know."
-label_settings = ExtResource("22_pqd0y")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EndingScreen"]
-offset_left = 481.0
-offset_top = 441.0
-offset_right = 786.0
-offset_bottom = 501.0
-text = "> Exit Game <"
-label_settings = ExtResource("22_pqd0y")
-
-[node name="InGameMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="UITilemapLower" type="TileMapLayer" parent="InGameMenu"]
-position = Vector2(-60, 0)
-scale = Vector2(1.8, 1.6)
-tile_map_data = PackedByteArray("AAABAAIAAgABAAAAAAABAAEAAgABAAEAAAACAAEAAgABAAAAAAADAAEAAgABAAEAAAAEAAEAAgABAAAAAAAFAAEAAgABAAAAAAAFAAIAAgABAAAAAAAFAAMAAgABAAAAAAAEAAMAAgABAAEAAAACAAMAAgABAAEAAAABAAMAAgABAAEAAAADAAMAAgABAAAAAAACAAIAAgABAAAAAAADAAIAAgABAAAAAAAEAAIAAgABAAAAAAABAAQAAgABAAAAAAACAAQAAgABAAAAAAADAAQAAgABAAAAAAAEAAQAAgABAAEAAAAFAAQAAgABAAAAAAABAAAAAgAAAAAAAAACAAAAAgABAAEAAAADAAAAAgABAAEAAAAEAAAAAgABAAEAAAAFAAAAAgAAAAAAAAA=")
-tile_set = ExtResource("24_wu01b")
-occlusion_enabled = false
-collision_enabled = false
-navigation_enabled = false
-
-[node name="UITilemapHigher" type="TileMapLayer" parent="InGameMenu"]
-position = Vector2(-60, 0)
-scale = Vector2(1.8, 1.6)
-tile_map_data = PackedByteArray("AAADAAAAAgAEAAMAAAA=")
-tile_set = ExtResource("24_wu01b")
-occlusion_enabled = false
-collision_enabled = false
-navigation_enabled = false
-
-[node name="Label" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 63.0
-offset_right = 220.0
-offset_bottom = 93.0
-text = "WASD To Move"
-label_settings = ExtResource("21_h6wmr")
-
-[node name="Label2" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 112.0
-offset_right = 226.0
-offset_bottom = 142.0
-text = "Space to Climb"
-label_settings = ExtResource("21_h6wmr")
-
-[node name="Label3" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 167.0
-offset_right = 238.0
-offset_bottom = 197.0
-text = "Shift to Run"
-label_settings = ExtResource("21_h6wmr")
-
-[node name="Label4" type="Label" parent="InGameMenu"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 214.0
-offset_right = 265.0
-offset_bottom = 244.0
-text = "Reach The Top To Win"
-label_settings = ExtResource("21_h6wmr")

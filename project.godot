@@ -25,6 +25,7 @@ config/icon="res://assets/icon.svg"
 [display]
 
 window/size/viewport_width=1187
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$InGameMenu.show()
+	
 	# Snap camera to character position
 	$Camera3D.position = $CharacterBody3D.position
 	
@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 	
 	# Move the camera back 5 meters along its local -Z axis
 	$Camera3D.translate_object_local(Vector3(0, 0, 10))
-	if get_node('EndingScreen').visible and Input.is_action_just_pressed("select"):
-		get_tree().quit()
+	#if get_node('EndingScreen').visible and Input.is_action_just_pressed("select"):
+	#	get_tree().quit()

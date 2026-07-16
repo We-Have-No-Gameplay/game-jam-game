@@ -16,7 +16,7 @@
 extends CharacterBody3D
 
 @onready var cam: Camera3D = get_parent().get_node("Camera3D")
-@onready var stamina_bar: ProgressBar = get_parent().get_node("CanvasLayer/StaminaBar")
+@onready var stamina_bar: ProgressBar = get_parent().get_parent().get_parent().get_parent().get_node('HUD/CanvasLayer/StaminaBar')
 
 const SPEED = 2.5
 const SPRINT_MULTIPLIER = 2.0

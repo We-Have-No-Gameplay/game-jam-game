@@ -68,6 +68,9 @@ func _process(_delta: float) -> void:
 				mainMenu_shown = false
 				get_node('MainMenu').hide()
 				get_node('PauseMenu').hide()
+				get_node('InGameMenu').show()
+				await get_tree().create_timer(5.0).timeout
+				get_node('InGameMenu').hide()
 			elif mainMenubuttonsForSelection[mainMenubuttonSelectedIndex] == "MainMenu/ButtonsContainer/CreditsButton":
 				creditsButtonPressed.emit()
 				print('creditsButtonPressed')
@@ -90,6 +93,9 @@ func _process(_delta: float) -> void:
 			level_shown = true
 			paused = false
 			$PauseMenu.hide()
+			get_node('InGameMenu').show()
+			await get_tree().create_timer(5.0).timeout
+			get_node('InGameMenu').hide()
 		if Input.is_action_just_pressed("arrow_down"):
 			pauseMenubuttonSelectedIndex += 1
 			pauseMenubuttonSelectedIndex = pauseMenubuttonSelectedIndex % len(pauseMenubuttonsForSelection)
@@ -105,6 +111,9 @@ func _process(_delta: float) -> void:
 				level_shown = true
 				paused = false
 				$PauseMenu.hide()
+				get_node('InGameMenu').show()
+				await get_tree().create_timer(5.0).timeout
+				get_node('InGameMenu').hide()
 			elif pauseMenubuttonsForSelection[pauseMenubuttonSelectedIndex] == "PauseMenu/OptionsButton":
 				optionsButtonPressed.emit()
 				print('optionsButtonPressed')
@@ -126,13 +135,15 @@ func _process(_delta: float) -> void:
 			
 		
 	elif level_shown:
-		$InGameMenu.show()
+		get_node('CanvasLayer').show()
 		if Input.is_action_just_pressed("escape"):
 			pausePressed.emit()
 			print('pausePressed')
 			level_shown = false
 			paused = true
 			$PauseMenu.show()
+			get_node('InGameMenu').hide()
+			get_node('CanvasLayer').hide()
 		
 	elif creditsMenu_shown:
 		if Input.is_action_just_pressed("select") or Input.is_action_just_pressed("escape"):
@@ -148,6 +159,7 @@ func _process(_delta: float) -> void:
 			paused = true
 			$PauseMenu.show()
 			$Settings.hide()
+		
 func _on_main_level_shown() -> void:
 	level_shown = true
 	paused = false
@@ -157,6 +169,8 @@ func _on_main_level_shown() -> void:
 	$CreditsMenu.hide()
 	$Settings.hide()
 	$InGameMenu.show()
+	await get_tree().create_timer(5.0).timeout
+	get_node('InGameMenu').hide()
 
 func _on_main_main_menu_shown() -> void:
 	mainMenu_shown = true
@@ -166,7 +180,6 @@ func _on_main_main_menu_shown() -> void:
 	$PauseMenu.hide()
 	$CreditsMenu.hide()
 	$Settings.hide()
-	$InGameMenu.hide()
 
 func _on_main_paused() -> void:
 	paused = true
@@ -176,7 +189,6 @@ func _on_main_paused() -> void:
 	$PauseMenu.show()
 	$CreditsMenu.hide()
 	$Settings.hide()
-	$InGameMenu.hide()
 
 func _on_h_slider_value_changed(value: float) -> void:
 	masterVolume = value

@@ -7,5 +7,5 @@ func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
-	get_parent().get_node('EndingScreen').show()
+	get_parent().get_parent().get_parent().get_parent().get_node('HUD/EndingScreen').show()
 	get_tree().paused = true     # Optional: pause the game when ending screen shows
